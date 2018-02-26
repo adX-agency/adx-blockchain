@@ -133,7 +133,7 @@ git clone https://github.com/adX-agency/adX.git
 neo-python commands to 
 
 ```
-build contract.py test 0710 01 True False operation []
+build coreadx.py test 0710 01 True False operation []
 import contract contract.avm 0710 01 True False
 ```
 
