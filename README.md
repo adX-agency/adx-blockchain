@@ -87,7 +87,7 @@ There are two types of users: vendors and customers. Vendors are the ones settin
 
         Description and details of your ads.
 
-    * **`price_per_person`**: (int)
+    * **`price`**: (int)
 
         Price in gas.
 
