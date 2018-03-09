@@ -15,15 +15,14 @@ adX is a novel tool for vendors (cafes, restaurants, stores, etc) to engage peop
 Smart contracts are implemented for sharing the tokens with the adX users based fist come first serve.  First user will get 50% of vendors amount, second - 25%, third - 12.5% and so on.
 
 - [Background](#background)
-
-* [Script Hash](#script-hash)
-* [Scope](#Scope)
-* [Usage](#usage)
-* [Documentation](#documentation)
-* [Deploy](#deploy)
-* [License](#license)
-* [Investors](#Investors)
-* [Future](#Future)
+- [Script Hash](#script-hash)
+- [Scope](#Scope)
+- [Usage](#usage)
+- [Documentation](#documentation)
+- [Deploy](#deploy)
+- [License](#license)
+- [Investors](#investors)
+- [Future](#future)
 
 ## adX consists of 3 parts:
 
