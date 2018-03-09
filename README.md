@@ -22,8 +22,8 @@ Smart contracts are implemented for sharing the tokens with the adX users based 
 * [Documentation](#documentation)
 * [Deploy](#deploy)
 * [License](#license)
-* [Potential Investors](#Potential Investors)
-* [Future Work](#Future Work)
+* [Investors](#Investors)
+* [Future](#Future)
 
 ## adX consists of 3 parts:
 
@@ -33,11 +33,13 @@ Smart contracts are implemented for sharing the tokens with the adX users based 
 
 - ### Android app with Augmented Reality, Mapbox and Firebase:
 
-  ### ![android_ui](/Users/admin/Desktop/projects/adX/adx-blockchain/android_ui.png)
+  ​
+
+  ### <img src="android_ui.png">
 
 - ### NEO blockchain:
 
-  ![diagramofsmartcontract](/Users/admin/Desktop/projects/adX/adx-blockchain/diagramofsmartcontract.png)
+  <img src="diagramofsmartcontract.png">
 
   ​
 
@@ -200,7 +202,7 @@ import contract contract.avm 0710 01 True False
 
 
 
-## Potential Investors
+## Investors
 
 Few advertisements firms already got a sneak peak of adX and they loved it. 
 
@@ -208,7 +210,7 @@ Pioneers of the ad business have given feedback stating that adX can revolutioni
 
 Especially taking in consideration the development of Augmented Reality on the smaller wearable devices. 
 
-## Future Work
+## Future
 
 - Implementation of Deep Learning techniques to replace the images of actual billboards in the streets with our elements. 
 - Implementation of other functions in the smart contracts:
