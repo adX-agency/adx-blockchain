@@ -59,7 +59,7 @@ With the sudden popularity of Pokemon Go. @aarora08 and @denisolt have realised 
 City of Zion testnet:
 
 ```
-
+N/A : Error Occured
 ```
 
 ## Scope
@@ -118,54 +118,155 @@ There are two types of users: vendors and customers. Vendors are the ones settin
 
 **Attention: functions cannot have spacing if started from neo-python. **
 
-### `create`
+### `register_ad`
 
 * Example:
 
-    > `testinvoke <contract_hash> create ['<creator_public_key>','McDonaldsAd','Opening-day-Big Mac 30% off!','Discount-for-meal-and-burger-alone',3,1546300800,5,8]`
+    > `testinvoke <scripthash> create ['senderhash','ad_id','ad_description','lat_lng', 'ad_exp', 'ad_views', 'ad_sell', 'ad_price']`
 
-    Here a new ad identified by `McDonaldsAd` is being created for the BigMac, promo expires on Jan 1, 2019 (1546300800 unix time). A vendor would typically be using this command.
+* Arguments (in order):
 
-* Parameters (in order):
+    * **`scripthash`**: The public hash of the smart contract on the NEO blockchain
 
-    * **`creator_public_key`**: (public key)
+    * **`user_hash`**: (hash address of the user)
 
-        Owner of the ad's public key. This public key is checked to determine whether the wallet used to invoke has permission to `delete` or `discover` a promo after it has been created. `creator_public_key` is explicitly stated to give flexibility, eg creating a promo on behalf of the vendor.
+        Owner of the ad's wallet hash (vendor). This hash is used to transfer NeoGas to the users.
 
-    * **`promo_id`**: (str)
+    * **`ad_id`**: (str)
 
         Unique String. Can be timestamp, lat, long.
 
-        **`title`**: (str)
-
-        Title of your ad.
-
-    * **`description`**: (str)
+        **`ad_description`**: (str)
 
         Description and details of your ads.
 
-    * **`price`**: (int)
+    * **`lat_lng`**: (str)
 
-        Price in gas.
+        Location of your ads.
 
-    * **`expiration`**: (int)
+    * **`ad_exp`**: (str)
 
-        Date the ad expires, expressed in unix GMT time. Vendors can only claim funds after the date/time has passed. 
+        Date the ad expires, expressed in unix GMT time. 
+
+    * **`ad_views`**: (int)
+
+        Number of views of the ad.
+
+    * **`ad_sell`**: (int)
+
+        The price of the ad. 
+
+    * **`ad_price`**: (int)
+
+        How much NeoGas is being distributed to the user when he saves the ad. 
 
 
-### `discover`
+### `register_user`
 
-* Example:
+- Example:
 
-    > `testinvoke <contract_hash> claim ['mypromocode']`
+  > `testinvoke <scripthash> create ['user_hash','userid','user_id','user_name', 'user_gas', 'user_views']`
 
-    Here a seller can claim funds from promo `McDonaldsAd` if the `min_count` and `expiration` is met. Funds can only be claimed if wallet's public key used to invoke matches the public key used in `create`.
+- Arguments (in order):
 
-* Parameters:
+  - **`scripthash`**: The public hash of the smart contract on the NEO blockchain
 
-    * **`promo_id`**: (str)
+  - **`user_hash`**:  (hash address of the user)
 
-        Desired ad to save and claim the tokens for.
+    Owner of the ad's wallet hash (vendor). This hash is used to transfer NeoGas to the users.
+
+  - **`userid`**: (int)
+
+    int. Can be timestamp, lat, long.
+
+    **`user_id`**: (str)
+
+    ID created out of userID and user_hash
+
+  - **`user_name`**: (str)
+
+    Name of the user.
+
+  - **`user_gas`**: (str)
+
+    Amount of NeoGas user has in the beginning. 
+
+  - **`user_views`**: (int)
+
+    Total number of views accumulated from the ads of the user.
+
+### `update_views`
+
+- Example:
+
+  > `testinvoke <scripthash> create ['ad_id','ad_views']`
+
+- Arguments (in order):
+
+  - **`scripthash`**: The public hash of the smart contract on the NEO blockchain
+
+  - **`ad_id`**: (hash of the ad)
+
+    A hash of the advertisement, since it is a digital asset.
+
+  - **`ad_views`**: (int)
+
+    Total number of views accumulated from the ad.
+
+### `update_gas`
+
+- Example:
+
+  > `testinvoke <scripthash> create ['ad_id','ad_gas_amount']`
+
+- Arguments (in order):
+
+  - **`scripthash`**: The public hash of the smart contract on the NEO blockchain
+
+  - **`ad_id`**: (hash of the ad)
+
+    A hash of the advertisement, since it is a digital asset.
+
+  - **`ad_gas_amount`**: (double)
+
+    Amount of the desirable NeoGas to be changed.
+
+### `give_user_gas`
+
+- Example:
+
+  > `testinvoke <scripthash> create ['ad_id', 'reciever_id', 'reciever_ad_count']`
+
+- Arguments (in order):
+
+  - **`scripthash`**: The public hash of the smart contract on the NEO blockchain
+
+  - **`ad_id`**: (hash of the ad)
+
+    A hash of the advertisement, since it is a digital asset.
+
+  - **`reciever_id`**: (hash address of the user)
+
+    Wallet hash of the regular user. This hash is used to transfer NeoGas from the vendor.
+
+  - **`recivever_ad_count`**: (int)
+
+    The position of the receiver, if he is first he gets 50%, second 25% and so on.
+
+### `getAdInfo`
+
+- Example:
+
+  > `testinvoke <scripthash> create ['ad_id']`
+
+- Arguments (in order):
+
+  - **`scripthash`**: The public hash of the smart contract on the NEO blockchain
+
+  - **`ad_id`**: (hash of the ad)
+
+    A hash of the advertisement, its location in the database
+
 
 
 ## Deploy
