@@ -288,11 +288,11 @@ git clone https://github.com/adX-agency/adX.git
 # install the apk on your Android device#
 ```
 
-neo-python commands to 
+neo-python CLI commands to invoke contract
 
 ```
-build coreadx.py test 0710 01 True False operation []
-import contract contract.avm 0710 01 True False
+build adx_contract.py test 0710 01 True False init
+import contract adx_contract.avm 0710 01 True False
 ```
 
 ## License
